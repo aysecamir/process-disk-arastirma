@@ -227,6 +227,11 @@ MiB Swap:   3776.0 total,   3776.0 free,      0.0 used.    781.7 avail Mem
 
 
 ### Process Durumları (Lifecycle)
+### Process Oluşturma Mekanizması (Fork & Exec)
+Linux'ta yeni bir işlem "yoktan var edilmez", var olan bir işlemden türetilir:
+1.  **fork():** Çalışan bir işlem (Parent), kendisinin birebir kopyasını (Child) oluşturur.
+2.  **exec():** Kopyalanan Child işlem, kendi hafıza alanını yeni çalıştıracağı programın koduyla değiştirir.
+
 Bir işlem hayatı boyunca şu durumlardan geçer:
 1.  **Running:** Çalışıyor.
 2.  **Sleeping:** Beklemede.
@@ -243,7 +248,7 @@ Linux'ta "Her şey bir dosyadır". C: veya D: sürücüleri yerine tek bir kök 
 Aşağıda, `df -h` komutu ile aldığım disk kullanım oranları yer almaktadır:
 [disk_durumu.txt](https://github.com/user-attachments/files/24740225/disk_durumu.txt)
 
-Filesystem      Size  Used Avail Use% Mounted on
+"Filesystem      Size  Used Avail Use% Mounted on
 udev            938M     0  938M   0% /dev
 tmpfs           196M  1.1M  195M   1% /run
 /dev/sda3        26G   15G   10G  60% /
@@ -260,7 +265,7 @@ tmpfs           980M  8.0K  980M   1% /tmp
 /dev/sda1        93M  142K   93M   1% /boot/efi
 tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-tmpfiles-setup.service
 tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
-tmpfs           196M  116K  196M   1% /run/user/1000
+tmpfs           196M  116K  196M   1% /run/user/1000"
 
 
 Analiz: Ana kök dizinim (/), 26 GB kapasiteye sahip olup şu an %60 doluluk oranındadır. Sistemde kullanılan fiziksel disk bölümü /dev/sda3 olarak tanımlanmıştır.
@@ -271,6 +276,12 @@ Analiz: Ana kök dizinim (/), 26 GB kapasiteye sahip olup şu an %60 doluluk ora
 
 ### Inode Kavramı
 Her dosyanın bir kimlik kartı vardır, buna **Inode** denir. Dosyanın izni, sahibi ve boyutu burada tutulur.
+### Hard Link vs Soft Link Farkı
+
+| Özellik | Hard Link | Soft Link (Sembolik) |
+| :--- | :--- | :--- |
+| **Mantık** | Dosyanın Inode numarasına doğrudan işaret eder. | Dosyanın yoluna (path) işaret eden bir kısayoldur. |
+| **Orijinal Silinirse** | Dosya kaybolmaz (erişilebilir). | Link bozulur (kırık link olur). |
 
 ---
 
