@@ -18,7 +18,7 @@ Diskte duran pasif kod parçasına "Program", bu programın belleğe yüklenip i
 ### Sistemdeki İşlemlerin Görüntüsü (Kanıt)
 Aşağıda, kendi sistemimde `top` komutu ile aldığım anlık işlemci süreçleri görülmektedir:
 [sistem_durumu.txt](https://github.com/user-attachments/files/24739798/sistem_durumu.txt)
-
+```text
 top - 16:56:47 up 4 min,  2 users,  load average: 1.31, 1.05, 0.47
 Tasks: 198 total,   1 running, 197 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  0.0 us,  6.9 sy,  0.0 ni, 91.7 id,  0.0 wa,  0.0 hi,  1.4 si,  0.0 st 
@@ -224,7 +224,7 @@ MiB Swap:   3776.0 total,   3776.0 free,      0.0 used.    781.7 avail Mem
    2172 root       0 -20       0      0      0 I   0.0   0.0   0:00.04 kworker+
    2221 ayse      20   0 2403668  71248  59600 S   0.0   3.6   0:00.34 Web Con+
    2246 ayse      20   0 2403664  70872  59352 S   0.0   3.5   0:00.29 Web Con+
-
+```
 
 ### Process Durumları (Lifecycle)
 ### Process Oluşturma Mekanizması (Fork & Exec)
@@ -248,7 +248,7 @@ Linux'ta "Her şey bir dosyadır". C: veya D: sürücüleri yerine tek bir kök 
 Aşağıda, `df -h` komutu ile aldığım disk kullanım oranları yer almaktadır:
 [disk_durumu.txt](https://github.com/user-attachments/files/24740225/disk_durumu.txt)
 
-"Filesystem      Size  Used Avail Use% Mounted on
+Filesystem      Size  Used Avail Use% Mounted on
 udev            938M     0  938M   0% /dev
 tmpfs           196M  1.1M  195M   1% /run
 /dev/sda3        26G   15G   10G  60% /
@@ -265,7 +265,7 @@ tmpfs           980M  8.0K  980M   1% /tmp
 /dev/sda1        93M  142K   93M   1% /boot/efi
 tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-tmpfiles-setup.service
 tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
-tmpfs           196M  116K  196M   1% /run/user/1000"
+tmpfs           196M  116K  196M   1% /run/user/1000
 
 
 Analiz: Ana kök dizinim (/), 26 GB kapasiteye sahip olup şu an %60 doluluk oranındadır. Sistemde kullanılan fiziksel disk bölümü /dev/sda3 olarak tanımlanmıştır.
