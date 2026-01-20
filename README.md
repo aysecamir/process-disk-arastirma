@@ -231,8 +231,6 @@ Linux'ta yeni bir işlem "yoktan var edilmez", var olan bir işlemden türetilir
 1.  **fork():** Çalışan bir işlem (Parent), kendisinin birebir kopyasını (Child) oluşturur.
 2.  **exec():** Kopyalanan Child işlem, kendi hafıza alanını yeni çalıştıracağı programın koduyla değiştirir.
 
-### Process Durumları (Lifecycle)
-
 Bir işlem hayatı boyunca şu durumlardan geçer:
 1.  **Running:** Çalışıyor.
 2.  **Sleeping:** Beklemede.
