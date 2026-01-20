@@ -285,7 +285,20 @@ Her dosyanın bir kimlik kartı vardır, buna **Inode** denir. Dosyanın izni, s
 | **Orijinal Silinirse** | Dosya kaybolmaz (erişilebilir). | Link bozulur (kırık link olur). |
 
 ---
+### Kritik İşlemler: Süreç Sonlandırma ve Dosya Arama
 
+#### 1. Süreç Sonlandırma (Kill)
+`top` komutu ile kaynakları tüketen bir işlemin PID numarası tespit edildikten sonra, o işlemi sonlandırmak için `kill` komutu kullanılır:
+
+* **`kill <PID>`:** İşleme kapanması için sinyal gönderir (Örn: `kill 3308`).
+* **`kill -9 <PID>`:** İşlem yanıt vermiyorsa zorla (force) kapatır.
+
+#### 2. Büyük Dosyaları Bulma
+Disk doluluk oranlarını `df` ile gördükten sonra, alanda en çok yer kaplayan büyük dosyaları bulmak için `find` komutu kullanılır.
+
+Örnek (Sistemdeki 100 MB'dan büyük dosyaları listeler):
+```bash
+find / -type f -size +100M
 ## 4. Kaynakça
 * Linux Man Pages
 * GeeksforGeeks OS Tutorials
