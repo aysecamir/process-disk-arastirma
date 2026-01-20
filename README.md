@@ -299,6 +299,7 @@ Disk doluluk oranlarını `df` ile gördükten sonra, alanda en çok yer kaplaya
 Örnek (Sistemdeki 100 MB'dan büyük dosyaları listeler):
 ```bash
 find / -type f -size +100M
+```
 ## 4. Kaynakça
 * Linux Man Pages
 * GeeksforGeeks OS Tutorials
