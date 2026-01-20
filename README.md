@@ -226,16 +226,17 @@ MiB Swap:   3776.0 total,   3776.0 free,      0.0 used.    781.7 avail Mem
    2246 ayse      20   0 2403664  70872  59352 S   0.0   3.5   0:00.29 Web Con+
 ```
 
-### Process Durumları (Lifecycle)
 ### Process Oluşturma Mekanizması (Fork & Exec)
 Linux'ta yeni bir işlem "yoktan var edilmez", var olan bir işlemden türetilir:
 1.  **fork():** Çalışan bir işlem (Parent), kendisinin birebir kopyasını (Child) oluşturur.
 2.  **exec():** Kopyalanan Child işlem, kendi hafıza alanını yeni çalıştıracağı programın koduyla değiştirir.
 
+### Process Durumları (Lifecycle)
+
 Bir işlem hayatı boyunca şu durumlardan geçer:
 1.  **Running:** Çalışıyor.
 2.  **Sleeping:** Beklemede.
-3.  **Zombie:** İşlem bitmiş ama kaydı silinmemiş.
+3.  **Zombie:** İşlem bitmiş ama ana işlem (parent) tarafından kaydı silinmemiş.
 
 ---
 
