@@ -241,15 +241,27 @@ Linux'ta "Her şey bir dosyadır". C: veya D: sürücüleri yerine tek bir kök 
 
 ### Disk Doluluk Oranı Görüntüsü (Kanıt)
 Aşağıda, `df -h` komutu ile aldığım disk kullanım oranları yer almaktadır:
+[disk_durumu.txt](https://github.com/user-attachments/files/24740225/disk_durumu.txt)
 
 Filesystem      Size  Used Avail Use% Mounted on
 udev            938M     0  938M   0% /dev
 tmpfs           196M  1.1M  195M   1% /run
 /dev/sda3        26G   15G   10G  60% /
 tmpfs           980M     0  980M   0% /dev/shm
+efivarfs        256K  159K   93K  64% /sys/firmware/efi/efivars
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-udev-load-credentials.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-sysctl.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-tmpfiles-setup-dev-early.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-tmpfiles-setup-dev.service
+tmpfs           980M  8.0K  980M   1% /tmp
 /dev/sda2       1.9G  101M  1.7G   6% /boot
 /dev/sda1        93M  142K   93M   1% /boot/efi
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-tmpfiles-setup.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
 tmpfs           196M  116K  196M   1% /run/user/1000
+
 
 Analiz: Ana kök dizinim (/), 26 GB kapasiteye sahip olup şu an %60 doluluk oranındadır. Sistemde kullanılan fiziksel disk bölümü /dev/sda3 olarak tanımlanmıştır.
 
